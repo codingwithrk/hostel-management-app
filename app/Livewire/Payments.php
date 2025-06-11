@@ -20,6 +20,8 @@ class Payments extends Component
     public $date_of_pay;
     public $paymentIdBeingEdited;
 
+    public int $maxAmount = 1;
+
     public function mount()
     {
         $this->payments = Payment::with('person')->latest()->get();
@@ -30,7 +32,7 @@ class Payments extends Component
     {
         return [
             'person_id' => 'required',
-            'amount' => 'required|numeric|min:1',
+            'amount' => 'required|numeric|min:1|max:' . $this->maxAmount,
             'date_of_pay' => 'required|date',
         ];
     }
@@ -40,6 +42,7 @@ class Payments extends Component
         return [
             'person_id.required' => 'Please select a person',
             'date_of_pay.required' => 'Payment date is required',
+            'amount.max' => 'Amount should be less than ' . $this->maxAmount . '.',
         ];
     }
 
@@ -64,6 +67,7 @@ class Payments extends Component
         $this->person_id = $payment->person_id;
         $this->amount = $payment->amount;
         $this->date_of_pay = $payment->date_of_pay;
+        $this->maxAmount = (int)People::whereId($payment->person_id)->first()->room_price;
     }
 
     public function updatePayment()
@@ -82,6 +86,11 @@ class Payments extends Component
         $message = 'Updated successfully';
         Dialog::toast($message);
         return redirect()->route('payments');
+    }
+
+    public function getMaxAmount(): void
+    {
+        $this->maxAmount = (int)People::whereId($this->person_id)->first()->room_price;
     }
 
     public function clearModalForm(): void

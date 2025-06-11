@@ -1,6 +1,6 @@
 <div class="space-y-6">
     <flux:heading size="lg">{{ $mainTitle }}</flux:heading>
-    <flux:select wire:model="person_id" label="{{ ucfirst(__('app.person')) }}">
+    <flux:select wire:model="person_id" label="{{ ucfirst(__('app.person')) }}" wire:change="getMaxAmount">
         <option value="">Select Person</option>
         @forelse($peoples as $people)
             <flux:select.option value="{{ $people->id }}" wire:key="{{ $people->id }}">
@@ -10,7 +10,7 @@
             <flux:select.option disabled>{{ __('app.people_table_empty') }}</flux:select.option>
         @endforelse
     </flux:select>
-    <flux:input type="number" label="{{ __('app.payment_amount') }}" wire:model="amount"/>
+    <flux:input type="number" label="{{ __('app.payment_amount') }}" wire:model="amount" max="{{ $maxAmount }}"/>
     <flux:input wire:model="date_of_pay" type="date" label="{{ __('app.payment_date') }}" max="{{ today()->toDateString() }}"/>
     <div class="flex">
         <flux:spacer/>

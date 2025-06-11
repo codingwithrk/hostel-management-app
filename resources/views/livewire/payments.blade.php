@@ -13,6 +13,8 @@
                     :peoples="$peoples"
                     :amount="$amount"
                     :date_of_pay="$date_of_pay"
+                    :getMaxAmount="'getMaxAmount'"
+                    :maxAmount="$maxAmount"
             />
         </flux:modal>
     </div>
@@ -59,6 +61,8 @@
                 :peoples="$peoples"
                 :amount="$amount"
                 :date_of_pay="$date_of_pay"
+                :getMaxAmount="'getMaxAmount'"
+                :maxAmount="$maxAmount"
         />
     </flux:modal>
 </div>

@@ -70,7 +70,7 @@ class AddEditPeople extends Component
         $message = $this->name . ' added successfully';
         $this->reset(['name', 'mobile_number', 'address', 'room', 'room_price', 'joining_date']);
         Dialog::toast($message);
-        return redirect()->route('peoples');
+        $this->backToPeoples();
     }
 
     public function editPeople()
@@ -115,7 +115,7 @@ class AddEditPeople extends Component
         $message = $this->name . ' updated successfully';
         $this->reset(['name', 'mobile_number', 'address', 'room', 'room_price', 'joining_date']);
         Dialog::toast($message);
-        return redirect()->route('peoples');
+        $this->backToPeoples();
     }
 
     public function backToPeoples()
