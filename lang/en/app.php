@@ -49,6 +49,7 @@ return [
     'payments_delete_confirm' => 'Are you sure you want to delete payments?',
     'payment_amount' => 'Amount',
     'payment_date' => 'Payment date',
+    'payment_history' => 'Payment history',
 
 
     // Common

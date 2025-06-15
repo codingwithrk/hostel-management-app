@@ -29,6 +29,7 @@
                         </flux:badge>
                     </td>
                     <td class="px-6 py-4 flex gap-2">
+                        <flux:button icon="eye" variant="primary" wire:click="viewPeopleDetails({{ $people->id }})"/>
                         <flux:modal.trigger name="edit-room">
                             <flux:button icon="pencil-square" wire:click="editPeople({{ $people->id }})"/>
                         </flux:modal.trigger>

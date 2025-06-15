@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\PeopleStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class People extends Model
 {
@@ -29,5 +30,10 @@ class People extends Model
     public function room(): BelongsTo
     {
         return $this->belongsTo(Room::class, 'room_id', 'id');
+    }
+
+    public function payments(): HasMany
+    {
+        return $this->hasMany(Payment::class, 'person_id', 'id');
     }
 }

@@ -28,6 +28,11 @@ class Peoples extends Component
         return redirect()->route('edit-people', $id);
     }
 
+    public function viewPeopleDetails($id)
+    {
+        return redirect()->route('view-people', $id);
+    }
+
     public function deletePeople(People $people)
     {
         $message = $people->person_name . ' deleted successfully';
