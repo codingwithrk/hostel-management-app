@@ -14,28 +14,6 @@ git clone https://github.com/codingwithrk/hostel-management-app.git
 
 ### Step 2
 
-- Copy .env.example
-
-```bash
-cp .env.example .env
-```
-
-- Generate key
-
-```bash
-php artisan key:generate
-```
-
-- Now in .env change
-
-```dotenv
-NATIVEPHP_APP_ID=com.yourcompany.yourapp
-NATIVEPHP_APP_VERSION="DEBUG"
-NATIVEPHP_APP_VERSION_CODE="1"
-```
-
-### Step 3
-
 - Composer update
 
 ```bash
@@ -52,6 +30,34 @@ npm install
 
 ```bash
 npm run build
+```
+
+### Step 3
+
+- Copy .env.example
+
+```bash
+cp .env.example .env
+```
+
+- Generate key
+
+```bash
+php artisan key:generate
+```
+
+- Run migrate
+
+```bash
+php artisan migrate
+```
+
+- Now in .env change
+
+```dotenv
+NATIVEPHP_APP_ID=com.yourcompany.yourapp
+NATIVEPHP_APP_VERSION="DEBUG"
+NATIVEPHP_APP_VERSION_CODE="1"
 ```
 
 ### Step 4
