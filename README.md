@@ -20,6 +20,8 @@ git clone https://github.com/codingwithrk/hostel-management-app.git
 composer update
 ```
 
+This will ask for license to make sure you purchase it. [Get license](https://nativephp.com/mobile)
+
 - NPM install
 
 ```bash
@@ -61,27 +63,6 @@ NATIVEPHP_APP_VERSION_CODE="1"
 ```
 
 ### Step 4
-
-- Install [NativePHP](https://nativephp.com/).
-
-- Add this in composer.json
-
-```text
-"repositories": [
-    {
-        "type": "composer",
-        "url": "https://nativephp.composer.sh"
-    }
-],
-```
-
-- Then run
-
-```bash
-composer require nativephp/mobile
-```
-
-This will ask for license to make sure you purchase it. [Get license](https://nativephp.com/mobile)
 
 - Run NativePHP installer
 
